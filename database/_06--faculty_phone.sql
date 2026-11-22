@@ -13,6 +13,9 @@ CREATE TABLE IF NOT EXISTS `faculty_phone` (
   -- Prevent duplicate faculty and phone assignments
   PRIMARY KEY (`faculty_email`, `phone_extension`),
 
+  -- Each faculty member can have only one phone extension
+  UNIQUE KEY `uq_faculty_phone_faculty` (`faculty_email`),
+
   -- Each phone extension can be assigned to only one faculty member
   UNIQUE KEY `uq_faculty_phone_extension` (`phone_extension`),
 

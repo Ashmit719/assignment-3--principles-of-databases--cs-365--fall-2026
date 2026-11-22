@@ -29,9 +29,6 @@ CREATE TABLE IF NOT EXISTS `faculty_program` (
     -- Each program has one assigned director
     UNIQUE KEY `uq_faculty_program_id` (`program_id`),
 
-    -- Index program IDs for efficient lookups
-    KEY `idx_faculty_program_id` (`program_id`),
-
     -- Link the assignment to an existing faculty member
     -- Automatically remove assignments if faculty is deleted
     CONSTRAINT `fk_faculty_program_faculty`

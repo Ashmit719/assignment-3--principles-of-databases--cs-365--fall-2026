@@ -14,6 +14,9 @@ CREATE TABLE IF NOT EXISTS `faculty_room` (
   -- Prevent duplicate faculty and room assignments
   PRIMARY KEY (`faculty_email`, `room_id`),
 
+  -- Each faculty member can have only one assigned office
+  UNIQUE KEY `uq_faculty_room_faculty` (`faculty_email`),
+
   -- Index room IDs to support searches by office
   -- Multiple faculty members may share the same office
   KEY `idx_faculty_room_id` (`room_id`),
