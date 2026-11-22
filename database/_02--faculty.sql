@@ -16,6 +16,10 @@ CREATE TABLE IF NOT EXISTS `faculty` (
 CREATE INDEX idx_faculty_department
     ON faculty (department);
 
+-- Index rank for professor rank filtering and grouping
+CREATE INDEX idx_faculty_rank
+    ON faculty (`rank`);
+
 INSERT INTO `faculty`
 (`first_name`, `last_name`, `department`, `rank`, `email`)
 VALUES

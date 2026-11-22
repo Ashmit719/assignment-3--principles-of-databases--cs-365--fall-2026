@@ -6,7 +6,7 @@ USE ceta_faculty;
 -- ==========================================================
 
 SELECT DISTINCT
-    CONCAT(first_name, ' ', last_name) AS Name,
+    CONCAT_WS(' ', first_name, middle_name, last_name) AS Name,
     department AS Department
 FROM faculty
 ORDER BY Department, Name;
@@ -18,7 +18,7 @@ ORDER BY Department, Name;
 -- ==========================================================
 
 SELECT
-    CONCAT(f.first_name, ' ', f.last_name) AS Name,
+    CONCAT_WS(' ', f.first_name, f.middle_name, f.last_name) AS Name,
     f.department AS Department,
     CONCAT(r.building, ' ', r.number) AS Location
 FROM faculty AS f
@@ -37,7 +37,7 @@ ORDER BY Name;
 -- ==========================================================
 
 SELECT
-    CONCAT(f.first_name, ' ', f.last_name) AS Name,
+    CONCAT_WS(' ', f.first_name, f.middle_name, f.last_name) AS Name,
     f.department AS Department,
     CONCAT(r.building, ' ', r.number) AS Location,
     p.extension AS Extension
